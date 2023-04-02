@@ -7,16 +7,20 @@ const getDogsByName = async (req, res)=> {
     const nameChar = name.toUpperCase()
     try {
         const response = await axios(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`)
-        let matchName = response.data.filter((dog) =>
-            dog.name.toUpperCase().includes(nameChar)
-        )
-        if(matchName.length) {
-            res.status(200).json(matchName)
-        } else {
-            throw Error
-        }
+        const allRaces = response.data?.map((race) => { 
+            return {
+                image : race.image?.url,
+                name : race.name,
+                temperament : race.temperament,
+                weight : race.weight?.metric
+            }
+        });
+        const regex = new RegExp(nameChar.replace(/[^a-z]/gi, "").split('').join('.*'), "i");
+        const results = allRaces.filter((dog) => regex.test(dog.name.replace(/[^a-z]/gi, "")));
+        console.log(results);
+        res.json(results)
     } catch (error) {
-        res.send("fucking query")
+        res.json("fallo")
     }
 
 }

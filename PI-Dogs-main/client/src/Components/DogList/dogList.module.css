@@ -1,0 +1,19 @@
+.cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 80px;
+}
+
+.card {
+    height: 15em;
+    width: 11em;
+    border: solid black 1px;
+    display: flex;
+    flex-direction: column;
+}
+
+.image {
+    height: 10em;
+    width: 10em;
+}
