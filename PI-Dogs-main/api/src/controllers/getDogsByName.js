@@ -12,7 +12,8 @@ const getDogsByName = async (req, res)=> {
                 image : race.image?.url,
                 name : race.name,
                 temperament : race.temperament,
-                weight : race.weight?.metric
+                weight : race.weight?.metric,
+                created : false
             }
         });
         const regex = new RegExp(nameChar.replace(/[^a-z]/gi, "").split('').join('.*'), "i");

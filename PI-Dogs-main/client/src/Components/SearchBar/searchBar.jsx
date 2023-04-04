@@ -1,18 +1,13 @@
 import { findedDogs } from "../../Redux/actions"
-import { useSelector, useDispatch } from "react-redux"
+import { useDispatch } from "react-redux"
 import { useEffect, useState } from "react";
 
 const SearchBar = () => {
     const [input, setInput] = useState("")
-    const dispatch = useDispatch();
-    const dogs = useSelector(store=>store.findedDogs)
+    const dispatch = useDispatch()
     
     const handleChange = (event) => {
         setInput(event.target.value)
-    }
-    const handleKeyDown = (event) => {
-        if (event.key === "Enter") {
-        }
     }
     
     useEffect(() => {
@@ -22,9 +17,10 @@ const SearchBar = () => {
 
     return (
         <div>
-        <input type="search" placeholder="escribe una raza" value={input} onChange={handleChange} onKeyDown={handleKeyDown}/>
+        <input type="search" placeholder="escribe una raza" value={input} onChange={handleChange}/>
 
-        <button onClick={() => {setInput("")}}>TODOS</button>
+        <button onClick={() => {setInput(""); console.log("boton!!");
+        }}>TODOS</button>
     </div>
     )
 }

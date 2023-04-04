@@ -1,19 +1,43 @@
 .cardContainer {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: row;
-    gap: 80px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    row-gap: 80px;
+    column-gap: 3em;
 }
 
 .card {
-    height: 15em;
-    width: 11em;
-    border: solid black 1px;
+    border: solid rgb(1, 1, 1) 1px;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 390px;
+    width: 260px;
+    margin: 5px;
+}
+
+.imageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
 .image {
-    height: 10em;
-    width: 10em;
+    width: 100%;
+    height: 50%;
+}
+
+.infoContainer {
+    width: 100%;
+}
+
+.info {
+    padding: 0;
+    margin: 0;
 }

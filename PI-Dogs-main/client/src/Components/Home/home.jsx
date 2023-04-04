@@ -1,16 +1,18 @@
 import {useSelector, useDispatch} from "react-redux"
 import style from "./home.module.css"
-import { getAllDogs } from "../../Redux/actions"
+import { getAllDogs, filterBy } from "../../Redux/actions"
 import DogList from "../DogList/dogList"
 import { useEffect, useState } from "react"
+import Filter from "../Filter/filter"
 
 //?Esta componente muestra en pantalla todas las cards paginada en 8 elementos por pagina
 const Home = () => {
-    const dispatch = useDispatch()
-    useEffect(() => {
-      dispatch(getAllDogs())
-    }, [])
-    const allDogs = useSelector((state) => state.findedDogs)
+  const allDogs = useSelector((state) => state.findedDogs)
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getAllDogs())
+  }, [allDogs])
+    console.log("alldogs", allDogs.length);
     const [currentPage, setcurrentPage] = useState(0);
     const perPage = 8;
     const totalPages = Math.ceil(allDogs.length/perPage);
@@ -22,10 +24,24 @@ const Home = () => {
     const startIndex = currentPage * perPage;
     const endIndex = startIndex + perPage;
     const currentPageDogs = allDogs.slice(startIndex, endIndex);
+    
+    // const handleOrder = (event) => {
+    //   console.log("input",event.target.value);
+      
+    //   dispatch(filterBy(event.target.value))
+    // }
 
     return (
     <div>
         <h1>esto es el Home</h1>
+        <div>
+        <Filter/>
+        {/* <input onChange={handleOrder}/> 
+          <select>
+            <option value="Ascendente">Ascendente</option>
+            <option>Descendente</option>
+          </select> */}
+        </div>
         <div className={style.cardContainer}>
             <DogList allDogs={currentPageDogs}/>
         </div>

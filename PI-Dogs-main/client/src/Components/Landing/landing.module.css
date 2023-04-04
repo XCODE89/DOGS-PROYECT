@@ -1,0 +1,7 @@
+.container {
+    background-image: url("../../Images/wpdog2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+}

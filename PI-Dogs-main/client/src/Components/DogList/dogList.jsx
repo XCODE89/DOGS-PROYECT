@@ -8,10 +8,14 @@ const DogList = ({allDogs}) => {
                 allDogs.map((dog, index) => {
                     return (
                         <div className={style.card} key={index}>
-                            <img src={dog.image} alt={dog.name} className={style.image}/>
-                            <p>{dog.name}</p>
-                            <p>{dog.temperament}</p>
-                            <p>{dog.weight}</p>
+                            <div className={style.imageContainer}>
+                                <img src={dog.image} alt={dog.name} className={style.image}/>
+                            </div>
+                            <div className={style.infoContainer}>
+                                <p className={style.info}>{dog.name}</p>
+                                <p className={style.info}>{dog.temperament}</p>
+                                <p className={style.info}>{dog.weight}</p>
+                            </div>
                         </div>
                     )
                 })
