@@ -1,22 +1,23 @@
 import {useSelector, useDispatch} from "react-redux"
 import style from "./home.module.css"
-import { getAllDogs, filterBy } from "../../Redux/actions"
+import { findedDogs, getAllDogs } from "../../Redux/actions"
 import DogList from "../DogList/dogList"
 import { useEffect, useState } from "react"
 import Filter from "../Filter/filter"
 
 //?Esta componente muestra en pantalla todas las cards paginada en 8 elementos por pagina
 const Home = () => {
+  const change = useSelector(state => state.change)
   const allDogs = useSelector((state) => state.findedDogs)
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(getAllDogs())
-  }, [allDogs])
-    console.log("alldogs", allDogs.length);
-    const [currentPage, setcurrentPage] = useState(0);
+    dispatch(getAllDogs());
+  }, [change])
+  console.log("alldogs", allDogs);
+  const [currentPage, setcurrentPage] = useState(0);
     const perPage = 8;
     const totalPages = Math.ceil(allDogs.length/perPage);
-
+    
     const handlePageClick = (pageNumber) => {
         setcurrentPage(pageNumber)
     }

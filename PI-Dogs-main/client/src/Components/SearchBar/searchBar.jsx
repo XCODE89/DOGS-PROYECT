@@ -13,13 +13,24 @@ const SearchBar = () => {
     useEffect(() => {
         dispatch(findedDogs(input))
     }, [input])
+
+    function resetSelects() {
+        let selectElements = document.querySelectorAll('select.reset');
+        selectElements.forEach((selectElement) => {
+            selectElement.selectedIndex = 0;
+        });
+    }
     
 
     return (
         <div>
-        <input type="search" placeholder="escribe una raza" value={input} onChange={handleChange}/>
+        <input type="search" placeholder="Search by breed" value={input} onChange={handleChange}/>
 
-        <button onClick={() => {setInput(""); console.log("boton!!");
+        <button onClick={() => {
+            setInput(""); 
+            dispatch(findedDogs(input));
+            resetSelects()
+            
         }}>TODOS</button>
     </div>
     )

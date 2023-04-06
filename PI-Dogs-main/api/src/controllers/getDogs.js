@@ -6,28 +6,45 @@ const {Dog, Temperament} = require("../db")
 const getDogs = async(req, res)=> {
     try {
         const dbResponse = await Dog.findAll({
-            // attributes: ["image", "name", "weight", "created"], include:temperament
             include : Temperament
         })
-        const dbDogs = dbResponse.map((temp) => {
-            return temp.temperaments.map((temp) => temp.name);
-        });
-        const dbDogs2 = [...dbDogs2, ...dbDogs]
-
-        console.log(dbDogs);
         
-        // const response = await axios(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`);
-        // const allRaces = response.data.map((race) => { 
-        //     return {
-        //         image : race.image?.url,
-        //         name : race.name,
-        //         temperament : race.temperament,
-        //         weight : race.weight?.metric,
-        //         created : false
-        //     }
-        // });
+        const dbDogs = dbResponse.map((temp) => {
+            console.log(temp);
+            const temps = temp.temperaments.map((temp) => temp.name).join(", ");
+            let names = temp.name.toLowerCase().split(" ");            
+            for (let i = 0; i < names.length; i++) {
+                names[i] = names[i].charAt(0).toUpperCase() + names[i].substring(1);
+            }
+            let name = names.join(' ');
+            return {
+                image : temp.image,
+                name : name,
+                temperament : temps,
+                weight : temp.weight,
+                created : true
+            }
+        });
 
-        res.status(200).json(dbDogs2)
+        const response = await axios(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`);
+        const allRaces = response.data.map((race) => {
+            // const temps = race.temperament.split(",")
+            // console.log(temps);
+            // console.log('holitas');
+            
+            return {
+                image : race.image?.url,
+                name : race.name,
+                temperament : race.temperament,
+                weight : race.weight?.metric,
+                created : false
+            }
+        });
+        
+        const totalDogs = [...dbDogs, ...allRaces]
+        console.log("totalDogs");
+        
+        res.status(200).json(totalDogs)
             
     } catch (error) {
         res.send("fallamos")

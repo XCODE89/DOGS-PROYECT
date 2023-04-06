@@ -5,5 +5,4 @@ export const FILTER_BY_TEMPERAMENT = "FILTER_BY_TEMPERAMENT"
 export const FILTER_BY_SOURCE = "FILTER_BY_SOURCE"
 export const ORDER_BY_NAME =  "ORDER_BY_NAME"
 export const ORDER_BY_WEIGHT = "ORDER_BY_WEIGHT"
-
 export const ERROR = "ERROR";

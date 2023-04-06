@@ -1,0 +1,15 @@
+.form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.minMax {
+    display: flex;
+    flex-direction: row;
+}
+
+.input {
+    border: solid blue 1px;
+}

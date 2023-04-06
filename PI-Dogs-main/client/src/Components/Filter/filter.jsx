@@ -19,8 +19,10 @@ const Filter = () => {
     }
 
     const handleOrderName = (event) => {
+        console.log();
+        
         dispatch(orderByName(event.target.value))
-    }
+    }   
 
     const handleOrderWeight = (event) => {
         dispatch(orderByWeight(event.target.value))
@@ -30,7 +32,7 @@ const Filter = () => {
         <div>
             <h1>esto es el Filter</h1>
             <div>  
-                <select onChange={handleFilterTemps} defaultValue="TEMPERAMENT">
+                <select onChange={handleFilterTemps} defaultValue="TEMPERAMENT" className="reset">
                     <option value="TEMPERAMENT" disabled> TEMPERAMENTS</option>
                     {allTemperaments.map((temperament, index)=> {
                         return (
@@ -39,17 +41,17 @@ const Filter = () => {
                     })
                     }
                 </select>
-                <select onChange={handleFilterSource} defaultValue="SOURCE">
+                <select onChange={handleFilterSource} defaultValue="SOURCE" className="reset">
                     <option value="SOURCE" disabled>SOURCE</option>
                     <option value={false}>API</option>
                     <option value={true}>DATABASE</option>
                 </select>
-                <select onChange={handleOrderName} defaultValue="ORDER BY NAME">
+                <select onChange={handleOrderName} defaultValue="ORDER BY NAME" className="reset">
                     <option value="ORDER BY NAME" disabled>ORDER BY NAME</option>
                     <option value="ASCENDENT">ASCENDENT</option>
                     <option value="DESCENDENT">DESCENDENT</option>
                 </select>
-                <select onChange={handleOrderWeight} defaultValue="ORDER BY WEIGHT">
+                <select onChange={handleOrderWeight} defaultValue="ORDER BY WEIGHT" className="reset">
                     <option value="ORDER BY WEIGHT" disabled>ORDER BY WEIGHT</option>
                     <option value="ASCENDENT">ASCENDENT</option>
                     <option value="DESCENDENT">DESCENDENT</option>
