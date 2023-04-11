@@ -1,12 +1,24 @@
-*{
+/* *{
     border: solid red 1px;
+} */
+
+
+.title {
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 20px;
+    font-size: 2em;
+
 }
+
+.searchBarContainer {
+    display: flex;
+    justify-content: center;
+}
+
 .cardContainer {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     gap: 80px;
-    /* display: grid;
-    grid-template-columns: repeat(3, 1fr); */
 }
 

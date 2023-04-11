@@ -18,6 +18,7 @@ const getDogs = async(req, res)=> {
             }
             let name = names.join(' ');
             return {
+                id : temp.id,
                 image : temp.image,
                 name : name,
                 temperament : temps,
@@ -33,6 +34,7 @@ const getDogs = async(req, res)=> {
             // console.log('holitas');
             
             return {
+                id : race.id,
                 image : race.image?.url,
                 name : race.name,
                 temperament : race.temperament,

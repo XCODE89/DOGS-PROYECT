@@ -1,9 +1,10 @@
 import {useSelector, useDispatch} from "react-redux"
 import style from "./home.module.css"
-import { findedDogs, getAllDogs } from "../../Redux/actions"
+import { getAllDogs } from "../../Redux/actions"
 import DogList from "../DogList/dogList"
 import { useEffect, useState } from "react"
 import Filter from "../Filter/filter"
+import SearchBar from "../SearchBar/searchBar"
 
 //?Esta componente muestra en pantalla todas las cards paginada en 8 elementos por pagina
 const Home = () => {
@@ -25,23 +26,15 @@ const Home = () => {
     const startIndex = currentPage * perPage;
     const endIndex = startIndex + perPage;
     const currentPageDogs = allDogs.slice(startIndex, endIndex);
-    
-    // const handleOrder = (event) => {
-    //   console.log("input",event.target.value);
-      
-    //   dispatch(filterBy(event.target.value))
-    // }
 
     return (
-    <div>
-        <h1>esto es el Home</h1>
+    <div className={style.general}>
+        <h1 className={style.title}>THE DOGS PROYECT</h1>
+        <div className={style.searchBarContainer}>
+          <SearchBar/>
+        </div>
         <div>
         <Filter/>
-        {/* <input onChange={handleOrder}/> 
-          <select>
-            <option value="Ascendente">Ascendente</option>
-            <option>Descendente</option>
-          </select> */}
         </div>
         <div className={style.cardContainer}>
             <DogList allDogs={currentPageDogs}/>

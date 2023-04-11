@@ -2,6 +2,7 @@ import {useDispatch, useSelector} from "react-redux"
 import { filterBySource, filterByTemperament, orderByName, orderByWeight } from "../../Redux/actions"
 import { getAllTemperaments } from "../../Redux/actions"
 import { useEffect } from "react"
+import style from "./filter.module.css"
 
 const Filter = () => {
     const dispatch = useDispatch()
@@ -29,9 +30,7 @@ const Filter = () => {
     }
 
     return (
-        <div>
-            <h1>esto es el Filter</h1>
-            <div>  
+        <div className={style.container}>  
                 <select onChange={handleFilterTemps} defaultValue="TEMPERAMENT" className="reset">
                     <option value="TEMPERAMENT" disabled> TEMPERAMENTS</option>
                     {allTemperaments.map((temperament, index)=> {
@@ -56,7 +55,6 @@ const Filter = () => {
                     <option value="ASCENDENT">ASCENDENT</option>
                     <option value="DESCENDENT">DESCENDENT</option>
                 </select>
-            </div>
         </div>
     )
 }

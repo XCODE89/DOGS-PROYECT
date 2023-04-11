@@ -38,6 +38,7 @@ const getDogsByName = async (req, res)=> {
         const response = await axios(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`)
         const allRaces = response.data?.map((race) => { 
             return {
+                id : race.id,
                 image : race.image?.url,
                 name : race.name,
                 temperament : race.temperament,

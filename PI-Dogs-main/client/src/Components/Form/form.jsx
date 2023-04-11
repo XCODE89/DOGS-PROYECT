@@ -88,58 +88,90 @@ const Form = () => {
     }
 
     return (
-    <div>
-        <h1>esto es el Form</h1>
+    <div className={style.general}>
         <div className={style.formContainer}>
             <form className={style.form} onSubmit={handleSubmit}>
-                <div>
-                <label htmlFor="name">Name :</label>
-                <input type="text" name="name" value={userData.name} className={style.input} onChange={handleOnChange}></input>
-                {errors.name && <p>{errors.name}</p>}
+                <div className={style.itemContainer}>
+                    <div className={style.info}>
+                        <label htmlFor="name" className={style.label}>Name :</label>
+                        <div className={style.inputContainer}>
+                            <input type="text" name="name" value={userData.name} className={style.input} onChange={handleOnChange}></input>
+                        </div>
+                    </div>
+                    <div className={style.errorContainer}>
+                        {errors.name && <p className={style.error}>{errors.name}</p>}
+                    </div>
                 </div>
-                <div className={style.minMax}>
-                    <label>Height :</label>
-                        <label htmlFor="minHeight" >min</label>
-                        <input type="number" name="minHeight" value={userData.minHeight} className={style.input} onChange={handleOnChange}></input>
-                        <label htmlFor="maxHeight">max</label>
-                        <input type="number" name="maxHeight" value={userData.maxHeight} className={style.input} onChange={handleOnChange}></input>
-                {errors.height && <p>{errors.height}</p>}
-
+                <div className={style.itemContainer}>
+                    <div className={style.info}>
+                        <label className={style.label}>Height :</label>
+                        <div className={style.inputContainer}>
+                            <label htmlFor="minHeight" ></label>
+                            <input type="number" name="minHeight" value={userData.minHeight} className={style.minMax} onChange={handleOnChange} placeholder="Min."></input>
+                            <label htmlFor="maxHeight"></label>
+                            <input type="number" name="maxHeight" value={userData.maxHeight} className={style.minMax} onChange={handleOnChange} placeholder="Max."></input>
+                        </div>
+                    </div>
+                    <div className={style.errorContainer}>
+                        {errors.height && <p className={style.error}>{errors.height}</p>}
+                    </div>
                 </div>
-                <div className={style.minMax}>
-                    <label>Weight :</label>
-                        <label htmlFor="minWeight">min</label>
-                        <input type="number" name="minWeight" value={userData.minWeight} className={style.input} onChange={handleOnChange}></input>
-                        <label htmlFor="maxWeight">max</label>
-                        <input type="number" name="maxWeight" value={userData.maxWeight} className={style.input} onChange={handleOnChange}></input>
-                {errors.weight && <p>{errors.weight}</p>}
-
+                <div className={style.itemContainer}>
+                    <div className={style.info}>
+                        <label className={style.label}>Weight :</label>
+                        <div className={style.inputContainer}>
+                            <label htmlFor="minWeight"></label>
+                            <input type="number" name="minWeight" value={userData.minWeight} className={style.minMax} onChange={handleOnChange} placeholder="Min."></input>
+                            <label htmlFor="maxWeight"></label>
+                            <input type="number" name="maxWeight" value={userData.maxWeight} className={style.minMax} onChange={handleOnChange} placeholder="Max."></input>
+                        </div>
+                    </div>
+                    <div className={style.errorContainer}>
+                        {errors.weight && <p className={style.error}>{errors.weight}</p>}
+                    </div>
                 </div>
-                <div className={style.minMax}>
-                    <label>Life span :</label>
-                        <label htmlFor="minLife" placeholder="min" ></label>
-                        <input type="number" name="minLife" value={userData.minLife} className={style.input} onChange={handleOnChange}></input>
-                        <label htmlFor="maxLife"placeholder="max"></label>
-                        <input type="number" name="maxLife" value={userData.maxLife} className={style.input} onChange={handleOnChange}></input> 
-                {errors.lifeSpan && <p>{errors.lifeSpan}</p>}   
+                <div className={style.itemContainer}>
+                    <div className={style.info}>
+                        <label className={style.label}>Life span :</label>
+                        <div className={style.inputContainer}>
+                            <label htmlFor="minLife" ></label>
+                            <input type="number" name="minLife" value={userData.minLife} className={style.minMax} onChange={handleOnChange} placeholder="Min."></input>
+                            <label htmlFor="maxLife"placeholder="max"></label>
+                            <input type="number" name="maxLife" value={userData.maxLife} className={style.minMax} onChange={handleOnChange}  placeholder="Max."></input> 
+                        </div>
+                    </div>
+                    <div className={style.errorContainer}>
+                        {errors.lifeSpan && <p className={style.error}>{errors.lifeSpan}</p>}
+                    </div>
                 </div>
-                <div>
-                    <label htmlFor="temperaments">Temperament: </label>
-                    <select type="text" name="temperaments" onChange={handleOnChange} className={style.input} multiple>
-                    {allTemperaments.map((temperament, index)=> {
-                        return (
-                            <option value={temperament.id} key={index}>{temperament.name}</option>
-                        )
-                    })
-                    }
-                    </select>
-                {errors.temperaments && <p>{errors.temperaments}</p>}
+                <div className={style.itemContainer}>
+                    <div className={style.info}>
+                        <label htmlFor="temperaments" className={style.label}>Temperament: </label>
+                        <select type="text" name="temperaments" onChange={handleOnChange} className={`${style.select} ${style.inputContainer}`} multiple>
+                            <option value="temperaments">Select one or more</option>
+                        {allTemperaments.map((temperament, index)=> {
+                            return (
+                                <option value={temperament.id} key={index}>{temperament.name}</option>
+                            )
+                        })
+                        }
+                        </select>
+                    </div>
+                    <div className={style.errorContainer}>
+                        {errors.temperaments && <p className={style.error}>{errors.temperaments}</p>}
+                    </div>
                 </div>
-                <div>
-                    <label htmlFor="image">Image: </label>
-                    <input type="text" id="image" name="image" value={userData.image} onChange={handleOnChange}></input>
+                <div className={style.itemContainer}>
+                    <div className={style.info}>
+                        <label htmlFor="image" className={style.label}>Image: </label>
+                        <div className={style.inputContainer}>
+                            <input type="text" id="image" name="image" value={userData.image} onChange={handleOnChange} className={style.input}></input>
+                        </div>
+                    </div>
                 </div>
-                <button>CREATE</button>
+                <div className={style.buttonContainer}>
+                    <button>CREATE</button>
+                </div>
             </form>
         </div>
     </div>

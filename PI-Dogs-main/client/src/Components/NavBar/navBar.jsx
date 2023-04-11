@@ -1,10 +1,14 @@
-import SearchBar from "../SearchBar/searchBar"
+import { NavLink } from "react-router-dom"
+import style from "./navBar.module.css"
 
 const NavBar = () => {
     return (
-    <div>
-        <h1>esto es el NavBar</h1>
-        <SearchBar/>
+    <div className={style.container}>
+        <div className={style.buttons}>
+            <NavLink to="/home" className={style.button}>HOME</NavLink>
+            <NavLink to="/form" className={style.button}>CREATE</NavLink>
+            <NavLink to="/" className={style.button}>EXIT</NavLink>
+        </div>
     </div>
     )
 }

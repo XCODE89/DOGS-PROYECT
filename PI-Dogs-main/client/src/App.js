@@ -15,7 +15,7 @@ function App() {
       {location.pathname === "/"? <Landing/> : <NavBar/>}      
       <Routes>
         <Route path='/home' element={<Home/>}/>
-        <Route path='/detail' element={<Detail/>}/>
+        <Route path='/detail/:idRaza' element={<Detail/>}/>
         <Route path='/form' element={<Form/>}/>
       </Routes>
     </div>

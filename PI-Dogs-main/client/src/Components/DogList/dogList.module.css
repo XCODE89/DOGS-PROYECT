@@ -6,38 +6,71 @@
     align-items: center;
     row-gap: 80px;
     column-gap: 3em;
+    border-radius: 10px;
 }
 
 .card {
-    border: solid rgb(1, 1, 1) 1px;
-    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 390px;
-    width: 260px;
+    border-radius: 10px;
+    height: 350px;
+    width: 280px;
     margin: 5px;
+    background : #b0c2f2
 }
 
 .imageContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 8px 4px #454f6b;
+    margin: 10px;
+    width: 90%;
+    height: 65%;
+    overflow: hidden;
+    background-color: rgba(178, 176, 176, 0.8);
 }
 
 .image {
-    width: 100%;
-    height: 50%;
+    object-fit: cover;
+    object-position: center;
+    max-height: 100%;
 }
 
 .infoContainer {
-    width: 100%;
+    display:  flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    height: 40%;
+    border-radius: 10px;
+    margin-top: -9%;
 }
 
-.info {
+.info1 {
     padding: 0;
-    margin: 0;
+    margin: 3px;
+    width: 75%;
+    background-color: rgb(206, 248, 220);   
+    border-radius: 10px;
+}
+
+.info2 {
+    padding: 3px;
+    margin: 3px;
+    background-color: rgb(186, 248, 220);
+    border-radius: 10px;
+    
+}
+
+.info3 {
+    padding: 3px;
+    margin: 3px;
+    background-color: rgb(166, 248, 220);
+    border-radius: 10px;
+    
 }
